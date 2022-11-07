@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
- @license
- Copyright 2019 Google LLC. All Rights Reserved.
- SPDX-License-Identifier: Apache-2.0
--->
 <html>
   <head>
     <title>Place Autocomplete Address Form</title>
@@ -18,7 +13,6 @@
       <p class="title">Sample address form for North America</p>
       <p class="note"><em>* = required field</em></p>
       <label class="full-field">
-        <!-- Avoid the word "address" in id, name, or label text to avoid browser autofill from conflicting with Place Autocomplete. Star or comment bug https://crbug.com/587466 to request Chromium to honor autocomplete="off" attribute. -->
         <span class="form-label">Deliver to*</span>
         <input
           id="ship-address"
@@ -49,41 +43,15 @@
       </label>
       <button type="button" class="my-button">Save address</button>
 
-      <!-- Reset button provided for development testing convenience.
-  Not recommended for user-facing forms due to risk of mis-click when aiming for Submit button. -->
-      <input type="reset" value="Clear form" />
+         <input type="reset" value="Clear form" />
     </form>
-    <!-- Replace Powered By Google image src with self hosted image. https://developers.google.com/maps/documentation/places/web-service/policies#other_attribution_requirements -->
-    <img
-      class="powered-by-google"
-      src="https://storage.googleapis.com/geo-devrel-public-buckets/powered_by_google_on_white.png"
-      alt="Powered by Google"
-    />
-
-    <!-- 
-     The `defer` attribute causes the callback to execute after the full HTML
-     document has been parsed. For non-blocking uses, avoiding race conditions,
-     and consistent behavior across browsers, consider loading using Promises
-     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
-    -->
+         
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AddYourKeyFromgoogle&callback=initAutocomplete&libraries=places&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=ADDYOURKEYFROMGOOGLE&callback=initAutocomplete&libraries=places&v=weekly"
       defer
     ></script>
     <script>
-       /**
- * @license
- * Copyright 2019 Google LLC. All Rights Reserved.
- * SPDX-License-Identifier: Apache-2.0
- */
-// This sample uses the Places Autocomplete widget to:
-// 1. Help the user select a place
-// 2. Retrieve the address components associated with that place
-// 3. Populate the form fields with those address components.
-// This sample requires the Places library, Maps JavaScript API.
-// Include the libraries=places parameter when you first load the API.
-// For example: <script
-// src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+    
 let autocomplete;
 let address1Field;
 let address2Field;
@@ -155,9 +123,6 @@ function fillInAddress() {
 
   address1Field.value = address1;
   postalField.value = postcode;
-  // After filling the form with address components from the Autocomplete
-  // prediction, set cursor focus on the second address line to encourage
-  // entry of subpremise information such as apartment, unit, or floor number.
   address2Field.focus();
 }
 
